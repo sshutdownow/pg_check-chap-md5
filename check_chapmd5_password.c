@@ -355,9 +355,9 @@ check_chapmd5_password(PG_FUNCTION_ARGS) {
 	PG_RETURN_NULL();
     }
 
-    chap_password  = text_to_cstring(PG_GETARG_TEXT_PP(0));
-    chap_challenge = text_to_cstring(PG_GETARG_TEXT_PP(1));
-    clear_password = text_to_cstring(PG_GETARG_TEXT_PP(2));
+    chap_password  = PG_GETARG_CSTRING(0);
+    chap_challenge = PG_GETARG_CSTRING(1);
+    clear_password = PG_GETARG_CSTRING(2);
     
     chap_password_len  = hex2bin(chap_password, arr_chap_password);
     chap_challenge_len = hex2bin(chap_challenge, arr_chap_challenge);
@@ -391,16 +391,6 @@ check_chapmd5_password(PG_FUNCTION_ARGS) {
     } else {
 	/* Access denied */
 	elog(WARNING, "wrong input: chap_password_len[%d] != MD5_DIGEST_LENGTH + 1", chap_password_len);
-    }
-
-    if (chap_password) {
-	pfree(chap_password);
-    }
-    if (chap_challenge) {
-	pfree(chap_challenge);
-    }
-    if (clear_password) {
-	pfree(clear_password);
     }
 
     PG_RETURN_BOOL(result);
