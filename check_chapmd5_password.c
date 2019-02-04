@@ -303,7 +303,7 @@ PG_MODULE_MAGIC;
 
 PG_FUNCTION_INFO_V1(check_chapmd5_password);
 
-#define PPP_CHAP_MD5_MAX_CHALLENGE	24
+#define PPP_CHAP_MD5_MAX_CHALLENGE	64
 
 static int
 char2int(char input) {
