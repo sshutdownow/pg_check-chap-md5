@@ -3,7 +3,7 @@ CREATE OR REPLACE FUNCTION checkchappassword(text, text, text)
 $BODY$
 use Digest::MD5; 
 my $chap_password = pack("H*", $_[0]); 
-my $chap_challenge = pack("H*", $_[1]); 
+my $chap_challenge = pack("H*", $_[1]);
 my $md5 = new Digest::MD5; 
 $md5->reset; 
 $md5->add(substr($chap_password, 0, 1)); 
