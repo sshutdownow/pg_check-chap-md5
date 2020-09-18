@@ -1,7 +1,7 @@
 # pg_check-chap-md5
 
 pg_check-chap-md5 is [PostgreSQL](https://www.postgresql.org/) extension that implements function that check authentication via CHAP MD5 [rfc1994](https://tools.ietf.org/html/rfc1994).
-Previously I have a such function in perl. But perl adds about 20Megs to every postgresql proccess. It was the only one function in perl, so, I have decided to rewrite it in C. After it, RADIUS server performs much better, especially under heavy load.
+Previously I have a such function in [perl](https://github.com/sshutdownow/pg_check-chap-md5/blob/master/check_chapmd5_password_perl.sql). But perl adds about 20Megs to every postgresql proccess. It was the only one function in perl, so, I have decided to rewrite it in C. After it, RADIUS server performs much better, especially under heavy load.
 
 Installation
 ------------
