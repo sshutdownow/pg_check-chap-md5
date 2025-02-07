@@ -7,20 +7,29 @@ Installation
 ------------
 1. Download and unpack.
 2. Compile source code, to fullfill it for RedHat/CentOS postgresql-devel package is required (yum install postgresql-devel), for Debian/Ubuntu you should install postgresql-server-dev package (apt-get install postgresql-server-dev):
+```
 make
+```
 3. Install:
+```
 sudo make install
+```
 4. Register extension in PostgreSQL:
+```
 CREATE EXTENSION check_chapmd5_password;
+```
 
 Usage:
 ------
-boolean check_chapmd5_password(text chap_password, text chap_challenge, text clear_password);
+Function signature is - boolean check_chapmd5_password(text chap_password, text chap_challenge, text clear_password);
+```
+SELECT check_chapmd5_password('00777f2a3f6a2e661947b520c6777e0b25', '45c915d82d67257209048420a31292d3', 'password')
+```
 Where chap_password and chap_challenge strings are encoded in hex.
 
 ### Copyright
 
-  Copyright (c) 2017 Igor Popov
+  Copyright (c) 2017-2025 Igor Popov
 
 License
 -------
