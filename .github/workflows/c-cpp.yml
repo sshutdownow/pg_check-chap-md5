@@ -35,7 +35,7 @@ jobs:
     - name: Add extension to PostgreSQL
       run: sudo -u postgres psql postgres -c "CREATE EXTENSION check_chapmd5_password"
     - name: Test extension check_chapmd5_password
-      run: sudo -u postgres psql postgres -c "EXPLAIN (ANALYZE, TIMING, FORMAT YAML) SELECT check_chapmd5_password('2d8f0e32ee566a4f26a9dc46eefeafc0', '6db35db7cf22ecc964ccbb9e6fa8afef', 'hello')"
+      run: sudo -u postgres psql postgres -c "EXPLAIN (ANALYZE, TIMING, FORMAT YAML) SELECT check_chapmd5_password('00777f2a3f6a2e661947b520c6777e0b25', '45c915d82d67257209048420a31292d3', 'password')"
 
 #      auto_tests:
 #        name: Auto Tests    
