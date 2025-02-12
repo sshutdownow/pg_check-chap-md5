@@ -31,7 +31,7 @@ jobs:
     - name: Start PostgreSQL service
       run: sudo systemctl start postgresql.service
     - name: make test
-      run: make installcheck
+      run: make PGUSER=postgres installcheck
     - name: Add extension to PostgreSQL
       run: sudo -u postgres psql postgres -c "CREATE EXTENSION check_chapmd5_password"
     - name: Test extension check_chapmd5_password
